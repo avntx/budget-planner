@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget Bloom</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+    <header>
+      <h1>Budget Bloom 🦋</h1>
+      <p>Plan your spending, savings, and little life things</p>
+    </header>
+
+    <section class="card">
+      <h2>Monthly Budget</h2>
+      <div class="row">
+        <input type="number" id="monthlyBudget" placeholder="Enter monthly budget" />
+        <button onclick="saveMonthlyBudget()">Save</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Monthly Savings Goal</h2>
+      <div class="row">
+        <input type="number" id="savingsGoal" placeholder="How much do you want to save?" />
+        <button onclick="saveSavingsGoal()">Save Goal</button>
+      </div>
+    </section>
+
+    <section class="summary">
+      <div class="summary-card">
+        <p>Total Budget</p>
+        <h3>$<span id="budgetDisplay">0.00</span></h3>
+      </div>
+
+      <div class="summary-card">
+        <p>Total Spent</p>
+        <h3>$<span id="spentDisplay">0.00</span></h3>
+      </div>
+
+      <div class="summary-card">
+        <p>Money Left</p>
+        <h3>$<span id="leftDisplay">0.00</span></h3>
+      </div>
+
+      <div class="summary-card">
+        <p>Safe To Spend</p>
+        <h3>$<span id="safeSpendDisplay">0.00</span></h3>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Manage Categories</h2>
+
+      <div class="row">
+        <input type="text" id="newCategoryInput" placeholder="Add category e.g. Travel" />
+        <button onclick="addCategory()">+ Add Category</button>
+      </div>
+
+      <div id="categoryList" class="category-list"></div>
+    </section>
+
+    <section class="card">
+      <h2>Set Category Budgets</h2>
+      <div id="categoryBudgetInputs" class="category-grid"></div>
+      <button onclick="saveCategoryBudgets()">Save Category Budgets</button>
+    </section>
+
+    <section class="card">
+      <h2>Add Spending</h2>
+      <div class="row">
+        <select id="expenseCategory"></select>
+        <input type="number" id="expenseAmount" placeholder="Amount" />
+        <input type="text" id="expenseNote" placeholder="Note e.g. lunch, petrol, flight" />
+        <button onclick="addExpense()">Add</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Category Tracker</h2>
+      <div id="categoryTracker" class="tracker"></div>
+    </section>
+
+    <section class="card">
+      <h2>Expense History</h2>
+      <div id="expenseList"></div>
+      <button class="clear-btn" onclick="clearAll()">Clear Month</button>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
