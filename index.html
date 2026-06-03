@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget Bloom</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app">
+
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Personal Finance Tracker</p>
+        <h1>Budget Bloom 🦋</h1>
+        <p class="subtitle">Track spending, savings, travel goals and bills beautifully.</p>
+      </div>
+      <button class="theme-btn" onclick="toggleDarkMode()">🌙</button>
+    </header>
+
+    <section class="dashboard">
+      <div class="mini-card">
+        <p>Total Budget</p>
+        <h2>$<span id="budgetDisplay">0.00</span></h2>
+      </div>
+      <div class="mini-card">
+        <p>Total Spent</p>
+        <h2>$<span id="spentDisplay">0.00</span></h2>
+      </div>
+      <div class="mini-card">
+        <p>Money Left</p>
+        <h2>$<span id="leftDisplay">0.00</span></h2>
+      </div>
+      <div class="mini-card">
+        <p>Safe To Spend</p>
+        <h2>$<span id="safeSpendDisplay">0.00</span></h2>
+      </div>
+    </section>
+
+    <main class="grid">
+
+      <section class="card">
+        <h3>Monthly Setup</h3>
+        <input type="number" id="monthlyBudget" placeholder="Monthly budget e.g. 2000" />
+        <input type="number" id="savingsGoal" placeholder="Savings goal e.g. 500" />
+        <button onclick="saveSetup()">Save Setup</button>
+      </section>
+
+      <section class="card">
+        <h3>Travel Fund ✈️</h3>
+        <input type="text" id="travelName" placeholder="Goal name e.g. Bali Trip" />
+        <input type="number" id="travelGoal" placeholder="Travel goal amount" />
+        <input type="number" id="travelSaved" placeholder="Amount saved so far" />
+        <button onclick="saveTravelGoal()">Save Travel Goal</button>
+        <div id="travelProgress"></div>
+      </section>
+
+      <section class="card">
+        <h3>Categories</h3>
+        <div class="input-row">
+          <input type="text" id="newCategoryInput" placeholder="Add category e.g. Pets" />
+          <button onclick="addCategory()">+</button>
+        </div>
+        <div id="categoryList" class="pill-list"></div>
+      </section>
+
+      <section class="card">
+        <h3>Category Budgets</h3>
+        <div id="categoryBudgetInputs" class="category-budget-grid"></div>
+        <button onclick="saveCategoryBudgets()">Save Budgets</button>
+      </section>
+
+      <section class="card">
+        <h3>Add Spending</h3>
+        <select id="expenseCategory"></select>
+        <input type="number" id="expenseAmount" placeholder="Amount spent" />
+        <input type="text" id="expenseNote" placeholder="Note e.g. lunch, petrol" />
+        <button onclick="addExpense()">Add Expense</button>
+      </section>
+
+      <section class="card">
+        <h3>Recurring Bills 💳</h3>
+        <div class="input-row">
+          <input type="text" id="billName" placeholder="Bill e.g. Spotify" />
+          <input type="number" id="billAmount" placeholder="Amount" />
+        </div>
+        <button onclick="addBill()">Add Bill</button>
+        <div id="billList"></div>
+      </section>
+
+      <section class="card wide">
+        <h3>Category Tracker</h3>
+        <div id="categoryTracker"></div>
+      </section>
+
+      <section class="card wide">
+        <h3>Spending Breakdown</h3>
+        <div class="chart-wrap">
+          <canvas id="spendingChart"></canvas>
+        </div>
+      </section>
+
+      <section class="card wide">
+        <h3>Expense History</h3>
+        <div id="expenseList"></div>
+        <div class="action-row">
+          <button onclick="exportCSV()">Export CSV</button>
+          <button class="danger" onclick="clearAll()">Clear Month</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
